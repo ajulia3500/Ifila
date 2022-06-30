@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="app-card app-card-account align-items-start col-lg-10">
+    <div class="row">
+        <h1>Alunos Cadastrados<h1>
+
+
+    </div>
+    <div class="row">
+        <table class="table table-bordered">
+            <tr class="thead-dark">
+                <td>ID</td>
+                <td>Título</td>
+                <td>Turma</td>
+                <td>Email</td>
+
+            </tr>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{aluno.id}}</td>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.turma }}</td>
+                <td>{{ aluno.email }}</td>
+                <td>
+                    <a class="editar" href="/editar/{{aluno.id}}"><button type="button"
+                            class="btn btn-success">Editar</button>
+                        <a class="editar" href="{{aluno.id}}"><button type="button"
+                                class="btn btn-primary">Detalhar</button>
+                            <a class="editar" href="delete/{{aluno.id}}"><button type="button"
+                                    class="btn btn-danger">Excluir</button></a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        <br>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}

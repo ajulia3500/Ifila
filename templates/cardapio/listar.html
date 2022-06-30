@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="app-card app-card-account align-items-start col-lg-10">
+    <div class="row">
+        <h1>Cardápios<h1>
+
+
+    </div>
+    <div class="row">
+        <table class="table table-bordered">
+            <tr class="thead-dark">
+                <td>ID</td>
+                <td>Arroz </td>
+                <td>Feijao</td>
+                <td>Proteina</td>
+                <td>Descrição</td>
+
+            </tr>
+            {% for cardapio in cardapios %}
+            <tr>
+                <td>{{cardapio.id}}</td>
+                <td>{{ cardapio.arroz }}</td>
+                <td>{{ cardapio.feijao }}</td>
+                <td>{{ cardapio.proteina }}</td>
+                <td>{{ cardapio.descricao }}</td>
+                <td>
+                    <a class="editar" href="cardapio/editar/{{cardapio.id}}"><button type="button"
+                            class="btn btn-success">Editar</button>
+                            <a class="editar" href="cardapio/delete/{{cardapio.id}}"><button type="button"
+                                    class="btn btn-danger">Excluir</button></a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        <br>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}
